@@ -104,26 +104,28 @@
     });
   </script>
   <form action="https://formspree.io/f/mgvnrpod" method="POST" id="found-note" data-handled="true">
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const ok = document.getElementById('ok');
-  const data = new FormData(form);
-  try {
-    const res = await fetch(form.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    });
-    if (res.ok) {
-      ok.style.display = 'block'; // shows “Thanks! Your note was sent.”
-      form.reset();
-    } else {
-      alert('Something went wrong. Please try again.');
+<script>
+  const form = document.querySelector('form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const ok = document.getElementById('ok');
+    const data = new FormData(form);
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        ok.style.display = 'block'; // shows “Thanks! Your note was sent.”
+        form.reset();
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch {
+      alert('Network error. Please try again.');
     }
-  } catch {
-    alert('Network error. Please try again.');
-  }
-});
+  });
 </script>
 </body>
 </html>
