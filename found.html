@@ -192,7 +192,7 @@
     }
   })();
 </script>
-   <script>
+ <script>
 // 1) Get the tag value from the URL (e.g., /found.html?tag=TVX6PJ)
 function getParam(key) {
   const url = new URL(window.location.href);
@@ -200,9 +200,8 @@ function getParam(key) {
 }
 const tag = getParam('tag');
 
-// 2) Your Google Form base URL — this defines formBase
-const formBase =
-  'https://docs.google.com/forms/d/e/1FAIpQLSdybf7TghzzJemsK1ssVCTAF7LE0ic32bW57Jvc7Mz2dMWeFA/viewform?usp=pp_url&entry.2087795821=';
+// 2) Your Google Form base URL — defines formBase
+const formBase = 'https://docs.google.com/forms/d/e/1FAIpQLXXXXXXXXXXXXXXXXXXXXXXXX/viewform?usp=pp_url&entry.2087795821=';
 
 // 3) Attach the tag value to the "Report found" button
 const btn = document.getElementById('reportBtn');
@@ -210,9 +209,5 @@ if (btn) {
   btn.href = formBase + encodeURIComponent(tag);
 }
 </script>
-</body>
-</html>
-  }
-</script> 
 </body>
 </html>
