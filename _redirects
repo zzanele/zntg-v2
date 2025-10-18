@@ -1,1 +1,2 @@
-/*    /found.html    200
+/t/:code   /found.html?tag=:code   200
+/*         /index.html             200
