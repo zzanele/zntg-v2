@@ -207,7 +207,11 @@ const formBase =
 // 3) Attach the tag value to the "Report found" button
 const btn = document.getElementById('reportBtn');
 if (btn) {
-  btn.href = formBase + encode
+  btn.href = formBase + encodeURIComponent(tag);
+}
+</script>
+</body>
+</html>
   }
 </script> 
 </body>
