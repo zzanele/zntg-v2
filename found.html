@@ -200,19 +200,27 @@
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  function getParam(key) {
-    const url = new URL(window.location.href);
-    return url.searchParams.get(key) || '';
-  }
+  // 1) Read ?tag=... from the URL (e.g., /found.html?tag=TVX6PJ)
+  const url = new URL(window.location.href);
+  const tag = url.searchParams.get('tag') || '';
 
-  const formBase = 'https://docs.google.com/forms/d/e/1FAIpQLSdybf7TghzzJemsKlssVCTAF7LE0ic32bW57Jvc7Mz2dMWeFA/viewform?usp=pp_url&entry.2087795821=';
+  // 2) Base link to your Google Form with Tag ID field prefill
+  const formBase =
+    'https://docs.google.com/forms/d/e/1FAIpQLSdybf7TghzzJemsKlssVCTAF7LE0ic32bW57Jvc7Mz2dMWeFA/viewform?usp=pp_url&entry.2087795821=';
 
+  // 3) Wire up the "Report found" button
   const btn = document.getElementById('reportBtn');
   if (btn) {
-    btn.target = '_blank';
-    btn.href = formBase + encodeURIComponent(tag || '');
+    btn.target = '_blank'; // open in new tab on mobile
+    btn.href   = formBase + encodeURIComponent(tag);
   }
+
+  // 4) Auto-redirect after 1 second (adjust if you want longer)
+  setTimeout(() => {
+    window.location.href = formBase + encodeURIComponent(tag);
+  }, 1000);
 });
 </script>
+
 </body>
 </html>
