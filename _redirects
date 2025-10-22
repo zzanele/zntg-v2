@@ -1,2 +1,6 @@
-/t/:code   /found.html?tag=:code   200
-/*         /index.html             200
+# Redirect tag URLs to Google Form with Tag ID prefilled
+/t/:code  https://docs.google.com/forms/d/e/1FAIpQLSdybf7TghzzJemsKlssVCTAF7LE0ic32bW57Jvc7Mz2dMWeFA/viewform?usp=pp_url&entry.2087795821=:code  302
+
+# Default routes
+/  /index.html  200
+/found  /found.html  200
