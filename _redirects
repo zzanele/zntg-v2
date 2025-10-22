@@ -1,6 +1,7 @@
 # Redirect tag URLs to branded page that passes tag code
-/t/:code  /found?tag=:code  200
+/t/:code      /found.html?tag=:code         200
+/code*        /found.html?tag=code:splat    200
 
 # Default routes
-/           /index.html  200
-/found      /found.html  200
+/             /index.html                   200
+/found        /found.html                   200
