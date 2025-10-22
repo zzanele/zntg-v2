@@ -1,7 +1,20 @@
-# Redirect tag URLs to branded page that passes tag code
-/t/:code      /found.html?tag=:code         200
-/code*        /found.html?tag=code:splat    200
+# ---------- STATIC / KNOWN PATHS (keep these first so they don't get captured) ----------
+/index.html                  /index.html                         200
+/found.html                  /found.html                         200
+/found                       /found.html                         200
+/assets/*                    /assets/:splat                      200
 
-# Default routes
-/             /index.html                   200
-/found        /found.html                   200
+# ---------- TAG PATHS -> branded page with ?tag=... ----------
+# /t/TVX6PJ  ->  /found.html?tag=TVX6PJ
+/t/:code                      /found.html?tag=:code              200
+
+# /code7, /code/7, /code/TVX6PJ -> /found.html?tag=...
+/code::code                   /found.html?tag=:code              200
+/code/:code                   /found.html?tag=:code              200
+/code*                        /found.html?tag=:splat             200
+
+# **NEW** root-level codes like /13DLFK, /QLBY9M, etc. -> /found.html?tag=...
+/:code                        /found.html?tag=:code              200
+
+# ---------- SPA fallback (anything else) ----------
+/*                            /index.html                        200
